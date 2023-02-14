@@ -31,4 +31,10 @@ public class Doctor {
     private String visita;
 
     private String cirurgia;
+
+    private Integer totalPlantoes;
+
+    public void calcularTotalPlantoes() {
+        this.totalPlantoes = Math.toIntExact(Math.round(Double.parseDouble(plantao) + 0.5 * Double.parseDouble(visita) + 0.5 * Double.parseDouble(triagem)));
+    }
 }

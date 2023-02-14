@@ -19,6 +19,8 @@ public class DoctorService {
 
     public List<Doctor> saveAll(List<DoctorDTO> doctorsDTO) {
         List<Doctor> doctors = doctorsDTO.stream().map(doctorDTO -> mapper.map(doctorDTO, Doctor.class)).toList();
+        doctors.forEach(Doctor::calcularTotalPlantoes);
+
         return doctorRepository.saveAll(doctors);
     }
 

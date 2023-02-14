@@ -44,7 +44,8 @@ public class PDFWriter {
 
     private static void addTableHeader(PdfPTable table) {
         table.setPaddingTop(10);
-        Stream.of("Médico(a)", "Plantões", "Triagem", "Visitas", "Cirurgias").forEach(columnTitle -> {
+        Stream.of("Médico(a)", "Plantões", "Triagem", "Visitas", "Cirurgias", "Total Plantões")
+                .forEach(columnTitle -> {
             PdfPCell header = new PdfPCell();
             header.setBackgroundColor(LIGHT_GRAY);
             header.setBorderWidth(1);
@@ -60,6 +61,7 @@ public class PDFWriter {
             table.addCell(doctor.getTriagem());
             table.addCell(doctor.getVisita());
             table.addCell(doctor.getCirurgia());
+            table.addCell(doctor.getTotalPlantoes().toString());
         });
     }
 
